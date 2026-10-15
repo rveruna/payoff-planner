@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
-import { linearScale, niceTicks } from '../domain/chart';
+import { linearScale, monthTicks, niceTicks } from '../domain/chart';
 import { formatPoundsShort } from '../domain/money';
-import { addMonths, formatMonth, type Month } from '../domain/months';
+import { addMonths, shortMonth, type Month } from '../domain/months';
 
 export const WIDTH = 720;
 export const HEIGHT = 320;
@@ -24,17 +24,6 @@ interface Props {
   onScrub?: (month: number) => void;
   children: (scales: Scales) => ReactNode;
 }
-
-/** Month ticks that are a whole number of years apart, or half years for a short plan. */
-export function monthTicks(xMax: number): number[] {
-  const step = xMax <= 24 ? 6 : xMax <= 120 ? 12 : xMax <= 300 ? 24 : 60;
-  const ticks: number[] = [];
-  for (let m = 0; m <= xMax; m += step) ticks.push(m);
-  return ticks;
-}
-
-/** "Oct 2026": the first three letters of the month and the year. */
-export const short = (month: Month) => formatMonth(month).replace(/^(\w{3})\w*/, '$1');
 
 /** Axes, grid lines and the pointer handling that both charts share. */
 export function ChartFrame({ xMax, yMax, start, label, onScrub, children }: Props) {
@@ -78,7 +67,7 @@ export function ChartFrame({ xMax, yMax, start, label, onScrub, children }: Prop
       ))}
       {monthTicks(xMax).map((m) => (
         <text key={m} x={x(m)} y={HEIGHT - 10} textAnchor="middle" fontSize="12" fill="#3d4757">
-          {short(addMonths(start, m))}
+          {shortMonth(addMonths(start, m))}
         </text>
       ))}
       {children({ x, y, monthAt, plotBottom })}
