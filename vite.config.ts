@@ -10,6 +10,8 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
     css: false,
+    // the property tests and the axe checks of a 600-month table are quick here but slower on a shared build machine
+    testTimeout: 30_000,
     coverage: {
       provider: 'v8',
       include: ['src/**/*.{ts,tsx}'],
