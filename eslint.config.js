@@ -6,7 +6,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['coverage', 'dist', 'node_modules', 'perf/results'] },
+  { ignores: ['coverage', 'dist', 'node_modules', 'perf/results', 'mobile'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   reactHooks.configs.flat.recommended,
