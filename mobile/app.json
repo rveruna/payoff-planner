@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "Payoff Planner",
+    "slug": "payoff-planner",
+    "version": "0.1.0",
+    "scheme": "payoff",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rveruna.payoffplanner",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Unlock your debts with Face ID."
+      }
+    },
+    "android": {
+      "package": "com.rveruna.payoffplanner",
+      "adaptiveIcon": {
+        "backgroundColor": "#17805a",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Unlock your debts with Face ID."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#17805a"
+        }
+      ]
+    ],
+    "experiments": {
+      "baseUrl": "/payoff-planner/app"
+    }
+  }
+}

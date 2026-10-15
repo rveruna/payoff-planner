@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
@@ -10,6 +10,8 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
     css: false,
+    // the Expo app in mobile/ has its own tests, run with Jest
+    exclude: [...configDefaults.exclude, 'mobile/**'],
     // the property tests and the axe checks of a 600-month table are quick here but slower on a shared build machine
     testTimeout: 30_000,
     coverage: {
