@@ -27,6 +27,18 @@ jobs:
       - run: npm run build
         env:
           VITE_BASE: /payoff-planner/
+      - name: Build the Expo app for the web
+        working-directory: mobile
+        run: |
+          npm ci
+          npm run build:web
+      - name: Publish the app at /app
+        run: |
+          mkdir -p dist/app
+          cp -R mobile/dist/. dist/app/
+          # Pages has no rewrites, so an address inside the app that is not a real file (a month, a debt, a shared link)
+          # is answered with the app's own page and the app's router takes over
+          cp mobile/dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

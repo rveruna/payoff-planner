@@ -25,3 +25,35 @@ jobs:
         run: npm run size
       - name: Lighthouse scores
         run: npm run perf:lighthouse -- --runs 3 --label ci --min-score 90 --min-quality 95
+
+  mobile:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - run: npm ci
+      # Expo's bundler (Metro) depends on braces, which has a high advisory (GHSA-vfj7-8cjw-p6xm, a slow pattern match) and no
+      # fixed release. It only runs on a developer's machine and in CI, nothing from it is shipped in the app, so only critical
+      # findings fail the build. Review this when braces publishes a fix.
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=critical
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run typecheck
+      - run: npm run test:coverage
+      - name: Check the Expo project is healthy
+        run: npx expo-doctor
+      - name: Bundle for iOS and Android
+        run: npm run bundle:native
+      - name: Export the web build
+        run: npm run build:web
+      - run: npx playwright install --with-deps chromium
+      - name: End-to-end and accessibility checks on the web build
+        run: npm run e2e
