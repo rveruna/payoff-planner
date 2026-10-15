@@ -100,5 +100,5 @@ docs/decisions/ the reasoning behind the main choices
 - **The sample debts and rates are invented**, and are not real products.
 - **Snowball can behave oddly**, as above. It is shown as it is.
 - **Fifty years is the longest plan worked out.** A plan not finished by then is reported as never paid off.
-- **Not financial advice.** It compares two common strategies on the numbers you give it, and leaves out everything else about your
+- **Not financial advice.** It compares two common strategies and a minimum-payments baseline on the numbers you give it, and leaves out everything else about your
   situation.
