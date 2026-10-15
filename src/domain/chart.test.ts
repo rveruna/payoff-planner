@@ -1,5 +1,14 @@
 import fc from 'fast-check';
-import { areaPath, balanceSeries, clearOrder, linePath, linearScale, niceTicks, stackBands } from './chart';
+import {
+  areaPath,
+  balanceSeries,
+  clearOrder,
+  linePath,
+  linearScale,
+  monthTicks,
+  niceTicks,
+  stackBands,
+} from './chart';
 import { simulate } from './engine';
 import type { Debt } from './types';
 
@@ -187,5 +196,18 @@ describe('stackBands', () => {
       ),
       { numRuns: 80 },
     );
+  });
+});
+
+describe('monthTicks', () => {
+  it.each([
+    [12, [0, 6, 12]],
+    [24, [0, 6, 12, 18, 24]],
+    [31, [0, 12, 24]],
+    [120, [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120]],
+    [200, [0, 24, 48, 72, 96, 120, 144, 168, 192]],
+    [600, [0, 60, 120, 180, 240, 300, 360, 420, 480, 540, 600]],
+  ])('for %s months', (xMax, expected) => {
+    expect(monthTicks(xMax)).toEqual(expected);
   });
 });

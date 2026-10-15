@@ -80,3 +80,11 @@ export function stackBands(debts: Debt[], plan: Plan): Band[] {
     return { id: debt.id, layers };
   });
 }
+
+/** Month ticks that are a whole number of years apart, or half years for a short plan. */
+export function monthTicks(xMax: number): number[] {
+  const step = xMax <= 24 ? 6 : xMax <= 120 ? 12 : xMax <= 300 ? 24 : 60;
+  const ticks: number[] = [];
+  for (let m = 0; m <= xMax; m += step) ticks.push(m);
+  return ticks;
+}
