@@ -3,7 +3,7 @@
 [![CI](https://github.com/rveruna/payoff-planner/actions/workflows/ci.yml/badge.svg)](https://github.com/rveruna/payoff-planner/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/rveruna/payoff-planner/actions/workflows/codeql.yml/badge.svg)](https://github.com/rveruna/payoff-planner/actions/workflows/codeql.yml)
 
-**[Live demo](https://rveruna.github.io/payoff-planner/)**
+**[Live demo](https://rveruna.github.io/payoff-planner/)** · **[The multi-screen Expo app, as a web build](https://rveruna.github.io/payoff-planner/app/)** ([`mobile/`](mobile/README.md))
 
 Which debt should you pay off first? Enter several debts, and the planner compares three ways of paying them (avalanche,
 snowball and minimum payments only), shows them racing, and, for any month you choose, **shows exactly how every number was
@@ -49,6 +49,7 @@ src/
   domain/       money, months, the engine, strategy order, explanation, scenario and link, chart maths (no React)
   hooks/        the scenario in the URL, playback, an eased number, reduced motion
   components/   debts editor, headline, strategy cards, charts, working panel, schedule table
+mobile/         a multi-screen Expo app (React Native) that imports src/domain, see mobile/README.md
 docs/decisions/ the reasoning behind the main choices
 ```
 
@@ -60,6 +61,10 @@ docs/decisions/ the reasoning behind the main choices
   ([0003](docs/decisions/0003-show-your-working-from-the-plan-itself.md)).
 - **The link is the saved plan**, read defensively as untrusted input
   ([0005](docs/decisions/0005-the-link-is-the-saved-plan.md)).
+- **The same engine in a native app.** `mobile/` is an Expo app with tabs, a stack, forms, secure storage, an optional biometric
+  lock and a monthly reminder, importing `src/domain` rather than copying it
+  ([0007](docs/decisions/0007-an-expo-app-that-shares-the-engine.md)). It has not been run on a simulator or phone; what it has
+  had instead is written down in [0010](docs/decisions/0010-what-has-and-has-not-been-run.md).
 
 ## Practices
 
