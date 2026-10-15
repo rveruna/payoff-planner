@@ -1,5 +1,5 @@
 import fc from 'fast-check';
-import { addMonths, formatDuration, formatMonth, isMonth, monthOf } from './months';
+import { addMonths, formatDuration, formatMonth, isMonth, monthOf, shortMonth } from './months';
 
 describe('isMonth', () => {
   it.each(['2026-11', '2026-01', '0999-12'])('accepts %s', (value) => {
@@ -74,5 +74,12 @@ describe('formatDuration', () => {
     [0, '0 months'],
   ])('%s months is %s', (months, text) => {
     expect(formatDuration(months)).toBe(text);
+  });
+});
+
+describe('shortMonth', () => {
+  it('writes a month in three letters with the year', () => {
+    expect(shortMonth('2026-10')).toBe('Oct 2026');
+    expect(shortMonth('2027-05')).toBe('May 2027');
   });
 });

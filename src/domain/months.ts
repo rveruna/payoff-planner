@@ -52,3 +52,8 @@ export function formatDuration(months: number): string {
   if (rest > 0 || years === 0) parts.push(`${rest} ${rest === 1 ? 'month' : 'months'}`);
   return parts.join(' ');
 }
+
+/** "Oct 2026": the first three letters of the month and the year. */
+export function shortMonth(month: Month): string {
+  return formatMonth(month).replace(/^(\w{3})\w*/, '$1');
+}
