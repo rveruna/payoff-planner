@@ -1,0 +1,58 @@
+{
+  "label": "baseline",
+  "runs": 3,
+  "median": {
+    "score": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "fcp": 1352.0598,
+    "lcp": 1502.0598,
+    "tbt": 0,
+    "cls": 0,
+    "speedIndex": 1352.0598,
+    "transferKb": 102.373046875,
+    "scriptKb": 98.64453125
+  },
+  "all": [
+    {
+      "score": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1352.6739,
+      "lcp": 1502.6739,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 1352.6739,
+      "transferKb": 102.373046875,
+      "scriptKb": 98.64453125
+    },
+    {
+      "score": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1352.0598,
+      "lcp": 1502.0598,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 1352.0598,
+      "transferKb": 102.373046875,
+      "scriptKb": 98.64453125
+    },
+    {
+      "score": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcp": 1351.8854,
+      "lcp": 1501.8854,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 1351.8854,
+      "transferKb": 102.373046875,
+      "scriptKb": 98.64453125
+    }
+  ]
+}

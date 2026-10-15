@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Link preview image</title>
+    <style>
+      /* The 1200 by 630 picture shown when the site is shared. The chart lines are the real sample plans: regenerate the
+         paths with "npx vite-node design/og-data.ts", then open this file in a browser and screenshot the page. */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+      }
+      body {
+        position: relative;
+        background: #f5f7fb;
+        color: #1d2433;
+        font-family:
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+      }
+      .panel {
+        position: absolute;
+        right: 60px;
+        top: 70px;
+        width: 600px;
+        height: 490px;
+        background: #fff;
+        border: 2px solid #d9dee7;
+        border-radius: 28px;
+        padding: 36px 40px;
+      }
+      .panel p {
+        margin: 0 0 14px;
+        font-size: 24px;
+        font-weight: 700;
+      }
+      svg {
+        display: block;
+      }
+      main {
+        position: absolute;
+        left: 70px;
+        top: 70px;
+        width: 440px;
+        height: 490px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .mark {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 30px;
+        font-weight: 800;
+        color: #17805a;
+      }
+      .mark span {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 11px;
+        background: #17805a;
+      }
+      h1 {
+        margin: 0;
+        font-size: 78px;
+        line-height: 1;
+        letter-spacing: -3px;
+      }
+      .sub {
+        margin: 22px 0 0;
+        font-size: 28px;
+        line-height: 1.35;
+        color: #4a5568;
+      }
+      .url {
+        margin: 0;
+        font-size: 26px;
+        color: #4a5568;
+      }
+      .key {
+        display: flex;
+        gap: 26px;
+        margin-top: 12px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .key span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="mark"><span></span>Payoff Planner</div>
+      <div>
+        <h1>Which debt first?</h1>
+        <p class="sub">Compare ways of paying off several debts, and see how every number is worked out.</p>
+      </div>
+      <p class="url">rveruna.github.io/payoff-planner</p>
+    </main>
+    <div class="panel">
+      <p>The race: total still owed</p>
+      <svg width="520" height="300" viewBox="0 0 520 300" aria-hidden="true">
+        <line x1="0" x2="520" y1="299" y2="299" stroke="#d9dee7" stroke-width="2" />
+        <path
+          d="M0.0 0.0 L5.7 5.2 L11.3 10.4 L17.0 15.7 L22.6 21.1 L28.3 26.4 L33.9 31.9 L39.6 37.4 L45.2 42.9 L50.9 48.5 L56.5 54.1 L62.2 59.8 L67.8 65.6 L73.5 71.4 L79.1 77.2 L84.8 83.2 L90.4 89.1 L96.1 95.2 L101.7 101.3 L107.4 107.4 L113.0 113.6 L118.7 119.9 L124.3 126.2 L130.0 132.6 L135.7 139.1 L141.3 145.6 L147.0 152.2 L152.6 158.9 L158.3 165.7 L163.9 171.6 L169.6 176.9 L175.2 182.2 L180.9 187.6 L186.5 193.0 L192.2 198.6 L197.8 204.1 L203.5 209.8 L209.1 212.5 L214.8 214.0 L220.4 215.6 L226.1 217.3 L231.7 218.9 L237.4 220.7 L243.0 222.4 L248.7 224.2 L254.3 226.1 L260.0 228.0 L265.7 229.9 L271.3 231.7 L277.0 233.0 L282.6 234.4 L288.3 235.8 L293.9 237.3 L299.6 238.7 L305.2 240.3 L310.9 241.8 L316.5 243.4 L322.2 245.0 L327.8 246.6 L333.5 248.3 L339.1 250.0 L344.8 251.7 L350.4 253.5 L356.1 255.3 L361.7 257.1 L367.4 259.0 L373.0 261.0 L378.7 262.9 L384.3 264.9 L390.0 267.0 L395.7 269.1 L401.3 271.2 L407.0 273.4 L412.6 275.6 L418.3 277.9 L423.9 280.2 L429.6 282.6 L435.2 285.0 L440.9 287.4 L446.5 289.9 L452.2 292.5 L457.8 295.1 L463.5 297.8 L469.1 300.0 L474.8 300.0 L480.4 300.0 L486.1 300.0 L491.7 300.0 L497.4 300.0 L503.0 300.0 L508.7 300.0 L514.3 300.0 L520.0 300.0"
+          fill="none"
+          stroke="#b3261e"
+          stroke-width="6"
+          stroke-dasharray="3 9"
+          stroke-linecap="round"
+        />
+        <path
+          d="M0.0 0.0 L5.7 7.7 L11.3 15.5 L17.0 23.5 L22.6 31.5 L28.3 39.7 L33.9 48.1 L39.6 56.6 L45.2 65.2 L50.9 74.0 L56.5 82.8 L62.2 91.8 L67.8 100.8 L73.5 109.8 L79.1 119.0 L84.8 128.2 L90.4 137.5 L96.1 146.8 L101.7 156.2 L107.4 165.7 L113.0 175.2 L118.7 184.8 L124.3 194.5 L130.0 204.3 L135.7 214.1 L141.3 224.1 L147.0 234.3 L152.6 244.7 L158.3 255.3 L163.9 266.2 L169.6 277.2 L175.2 288.5 L180.9 300.0 L186.5 300.0 L192.2 300.0 L197.8 300.0 L203.5 300.0 L209.1 300.0 L214.8 300.0 L220.4 300.0 L226.1 300.0 L231.7 300.0 L237.4 300.0 L243.0 300.0 L248.7 300.0 L254.3 300.0 L260.0 300.0 L265.7 300.0 L271.3 300.0 L277.0 300.0 L282.6 300.0 L288.3 300.0 L293.9 300.0 L299.6 300.0 L305.2 300.0 L310.9 300.0 L316.5 300.0 L322.2 300.0 L327.8 300.0 L333.5 300.0 L339.1 300.0 L344.8 300.0 L350.4 300.0 L356.1 300.0 L361.7 300.0 L367.4 300.0 L373.0 300.0 L378.7 300.0 L384.3 300.0 L390.0 300.0 L395.7 300.0 L401.3 300.0 L407.0 300.0 L412.6 300.0 L418.3 300.0 L423.9 300.0 L429.6 300.0 L435.2 300.0 L440.9 300.0 L446.5 300.0 L452.2 300.0 L457.8 300.0 L463.5 300.0 L469.1 300.0 L474.8 300.0 L480.4 300.0 L486.1 300.0 L491.7 300.0 L497.4 300.0 L503.0 300.0 L508.7 300.0 L514.3 300.0 L520.0 300.0"
+          fill="none"
+          stroke="#2b5fb0"
+          stroke-width="6"
+          stroke-dasharray="16 8"
+        />
+        <path
+          d="M0.0 0.0 L5.7 7.7 L11.3 15.6 L17.0 23.5 L22.6 31.7 L28.3 39.9 L33.9 48.3 L39.6 56.9 L45.2 65.6 L50.9 74.4 L56.5 83.3 L62.2 92.3 L67.8 101.4 L73.5 110.7 L79.1 120.1 L84.8 129.6 L90.4 139.3 L96.1 149.1 L101.7 159.0 L107.4 169.0 L113.0 179.2 L118.7 189.6 L124.3 200.0 L130.0 210.7 L135.7 221.4 L141.3 232.3 L147.0 243.4 L152.6 254.6 L158.3 266.0 L163.9 277.6 L169.6 289.2 L175.2 300.0 L180.9 300.0 L186.5 300.0 L192.2 300.0 L197.8 300.0 L203.5 300.0 L209.1 300.0 L214.8 300.0 L220.4 300.0 L226.1 300.0 L231.7 300.0 L237.4 300.0 L243.0 300.0 L248.7 300.0 L254.3 300.0 L260.0 300.0 L265.7 300.0 L271.3 300.0 L277.0 300.0 L282.6 300.0 L288.3 300.0 L293.9 300.0 L299.6 300.0 L305.2 300.0 L310.9 300.0 L316.5 300.0 L322.2 300.0 L327.8 300.0 L333.5 300.0 L339.1 300.0 L344.8 300.0 L350.4 300.0 L356.1 300.0 L361.7 300.0 L367.4 300.0 L373.0 300.0 L378.7 300.0 L384.3 300.0 L390.0 300.0 L395.7 300.0 L401.3 300.0 L407.0 300.0 L412.6 300.0 L418.3 300.0 L423.9 300.0 L429.6 300.0 L435.2 300.0 L440.9 300.0 L446.5 300.0 L452.2 300.0 L457.8 300.0 L463.5 300.0 L469.1 300.0 L474.8 300.0 L480.4 300.0 L486.1 300.0 L491.7 300.0 L497.4 300.0 L503.0 300.0 L508.7 300.0 L514.3 300.0 L520.0 300.0"
+          fill="none"
+          stroke="#17805a"
+          stroke-width="7"
+        />
+      </svg>
+      <div class="key">
+        <span
+          ><svg width="34" height="8">
+            <line x1="1" x2="33" y1="4" y2="4" stroke="#17805a" stroke-width="6" /></svg
+          >Avalanche</span
+        >
+        <span
+          ><svg width="34" height="8">
+            <line
+              x1="1"
+              x2="33"
+              y1="4"
+              y2="4"
+              stroke="#2b5fb0"
+              stroke-width="6"
+              stroke-dasharray="10 5"
+            /></svg
+          >Snowball</span
+        >
+        <span
+          ><svg width="34" height="8">
+            <line
+              x1="1"
+              x2="33"
+              y1="4"
+              y2="4"
+              stroke="#b3261e"
+              stroke-width="6"
+              stroke-dasharray="2 6"
+              stroke-linecap="round"
+            /></svg
+          >Minimums</span
+        >
+      </div>
+    </div>
+  </body>
+</html>
